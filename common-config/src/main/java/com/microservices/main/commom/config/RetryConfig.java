@@ -9,7 +9,6 @@ import org.springframework.retry.policy.SimpleRetryPolicy;
 import org.springframework.retry.support.RetryTemplate;
 
 @Configuration
-@ComponentScan(basePackages = "com.microservices.main")
 public class RetryConfig {
     private final RetryConfigData retryConfigData;
 
