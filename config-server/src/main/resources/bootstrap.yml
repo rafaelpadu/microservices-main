@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: configserver
-  cloud:
-    server:
-      git:
-        uri: file://home/rafael/Documentos/Pessoais/cursos/microservices/microservices-main/config-server-repository

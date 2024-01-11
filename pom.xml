@@ -36,8 +36,8 @@
         <kafka-spring.version>3.0.9</kafka-spring.version>
         <spring-retry.version>2.0.2</spring-retry.version>
         <kafka-avro-serializer>7.5.1</kafka-avro-serializer>
-        <spring-cloud-config.version>4.1.0</spring-cloud-config.version>
-        <spring-cloud-dependencies.version>2023.0.0</spring-cloud-dependencies.version>
+        <spring-cloud.version>4.0.3</spring-cloud.version>
+        <spring-cloud-dependencies.version>2022.0.4</spring-cloud-dependencies.version>
     </properties>
 
     <repositories>
@@ -126,7 +126,17 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-config-server</artifactId>
-                <version>${spring-cloud-config.version}</version>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-config</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
