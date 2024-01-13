@@ -3,9 +3,14 @@ spring:
     name: kafka-to-elastic-service
   profiles:
     active: kafka_to_elastic
+  config:
+    import: 'configserver:'
   cloud:
     config:
       name: kafka-to-elastic-service,config-client
       uri: http://localhost:8888
       username: rafaelpadu
       password: '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'
+
+log:
+  app-name: kafka-to-elastic-service
