@@ -5,6 +5,7 @@
         <groupId>com.microservices</groupId>
         <artifactId>microservices-main</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>kafka-consumer</artifactId>
