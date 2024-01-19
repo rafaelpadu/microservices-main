@@ -14,7 +14,7 @@ spring:
           uri: https://github.com/rafaelpadu/sprinb-cloud-config-server-repositiory
           default-label: master
           username: rafaelpadu
-          password: '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'
+          password: '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'
           clone-on-start: true
     fail-fast: true
   security:

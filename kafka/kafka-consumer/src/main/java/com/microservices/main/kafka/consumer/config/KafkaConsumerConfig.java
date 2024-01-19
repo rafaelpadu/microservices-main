@@ -1,4 +1,4 @@
-package com.microservices.config;
+package com.microservices.main.kafka.consumer.config;
 
 import com.microservices.main.config.KafkaConfigData;
 import com.microservices.main.config.KafkaConsumerConfigData;
@@ -16,17 +16,18 @@ import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @EnableKafka
 @Configuration
 public class KafkaConsumerConfig<K extends Serializable, V extends SpecificRecordBase> {
+
     private final KafkaConfigData kafkaConfigData;
+
     private final KafkaConsumerConfigData kafkaConsumerConfigData;
 
-    public KafkaConsumerConfig(KafkaConfigData kafkaConfigData, KafkaConsumerConfigData kafkaConsumerConfigData) {
-        this.kafkaConfigData = kafkaConfigData;
-        this.kafkaConsumerConfigData = kafkaConsumerConfigData;
+    public KafkaConsumerConfig(KafkaConfigData configData, KafkaConsumerConfigData consumerConfigData) {
+        this.kafkaConfigData = configData;
+        this.kafkaConsumerConfigData = consumerConfigData;
     }
 
     @Bean
@@ -36,11 +37,11 @@ public class KafkaConsumerConfig<K extends Serializable, V extends SpecificRecor
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, kafkaConsumerConfigData.getKeyDeserializer());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, kafkaConsumerConfigData.getValueDeserializer());
         props.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaConsumerConfigData.getConsumerGroupId());
-        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, kafkaConsumerConfigData.getAutoOffsetRest());
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, kafkaConsumerConfigData.getAutoOffsetReset());
         props.put(kafkaConfigData.getSchemaRegistryUrlKey(), kafkaConfigData.getSchemaRegistryUrl());
         props.put(kafkaConsumerConfigData.getSpecificAvroReaderKey(), kafkaConsumerConfigData.getSpecificAvroReader());
         props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, kafkaConsumerConfigData.getSessionTimeoutMs());
-        props.put(ConsumerConfig.HEARTBEAT_INTERVAL_MS_CONFIG, kafkaConsumerConfigData.getHeartBeatIntervalMs());
+        props.put(ConsumerConfig.HEARTBEAT_INTERVAL_MS_CONFIG, kafkaConsumerConfigData.getHeartbeatIntervalMs());
         props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, kafkaConsumerConfigData.getMaxPollIntervalMs());
         props.put(ConsumerConfig.MAX_PARTITION_FETCH_BYTES_CONFIG,
                 kafkaConsumerConfigData.getMaxPartitionFetchBytesDefault() *

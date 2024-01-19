@@ -10,5 +10,4 @@
     </parent>
 
     <artifactId>kafka</artifactId>
-    <packaging>pom</packaging>
 </project>

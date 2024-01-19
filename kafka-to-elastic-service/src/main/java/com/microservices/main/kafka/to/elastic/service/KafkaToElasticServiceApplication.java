@@ -1,4 +1,4 @@
-package com.microservices.service;
+package com.microservices.main.kafka.to.elastic.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
