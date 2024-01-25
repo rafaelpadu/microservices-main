@@ -11,10 +11,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/rafaelpadu/sprinb-cloud-config-server-repositiory
+          uri: https://github.com/rafaelpadu/config-server-repository
           default-label: master
           username: rafaelpadu
-          password: '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'
+          password: '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'
           clone-on-start: true
     fail-fast: true
   security:
