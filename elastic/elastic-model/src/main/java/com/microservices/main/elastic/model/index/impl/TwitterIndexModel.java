@@ -13,7 +13,7 @@ import java.time.ZonedDateTime;
 
 @Data
 @Builder
-@Document(indexName = "#{elasticConfigData.indexName}")
+@Document(indexName = "#{@elasticConfigData.indexName}")
 public class TwitterIndexModel implements IndexModel {
     @JsonProperty
     private String id;

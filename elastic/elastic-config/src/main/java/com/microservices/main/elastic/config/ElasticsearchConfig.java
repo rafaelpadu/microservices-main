@@ -20,7 +20,6 @@ public class ElasticsearchConfig extends ElasticsearchConfiguration {
         this.elasticConfigData = elasticConfigData;
     }
 
-    @Bean
     @Override
     public ClientConfiguration clientConfiguration() {
         return ClientConfiguration
