@@ -26,6 +26,7 @@
         <module>config-server</module>
         <module>kafka-to-elastic-service</module>
         <module>elastic</module>
+        <module>common-util</module>
     </modules>
     <properties>
         <java.version>17</java.version>
@@ -97,6 +98,16 @@
             <dependency>
                 <groupId>com.microservices</groupId>
                 <artifactId>elastic-index-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microservices</groupId>
+                <artifactId>elastic-query-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microservices</groupId>
+                <artifactId>common-util</artifactId>
                 <version>${project.version}</version>
             </dependency>
 <!--            EXTERNO-->
