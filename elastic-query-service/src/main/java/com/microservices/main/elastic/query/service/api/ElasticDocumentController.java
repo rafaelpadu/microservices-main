@@ -3,6 +3,8 @@ package com.microservices.main.elastic.query.service.api;
 import com.microservices.main.elastic.query.service.business.impl.TwitterElasticQueryService;
 import com.microservices.main.elastic.query.service.model.ElasticQueryServiceRequestModel;
 import com.microservices.main.elastic.query.service.model.ElasticQueryServiceResponseModel;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -29,14 +31,14 @@ public class ElasticDocumentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ElasticQueryServiceResponseModel> getDocumentById(@PathVariable String id) {
+    public ResponseEntity<ElasticQueryServiceResponseModel> getDocumentById(@PathVariable @NotEmpty String id) {
         ElasticQueryServiceResponseModel elasticQueryServiceResponseModel = twitterElasticQueryService.getDocumentById(id);
         LOGGER.debug("Elasticsearch returned document with id {}", id);
         return ResponseEntity.ok(elasticQueryServiceResponseModel);
     }
 
     @PostMapping("/get-document-by-text")
-    public ResponseEntity<List<ElasticQueryServiceResponseModel>> getDocumentByText(@RequestBody ElasticQueryServiceRequestModel elasticQueryServiceRequestModel) {
+    public ResponseEntity<List<ElasticQueryServiceResponseModel>> getDocumentByText(@RequestBody @Valid ElasticQueryServiceRequestModel elasticQueryServiceRequestModel) {
         List<ElasticQueryServiceResponseModel> responseModels = twitterElasticQueryService.getDocumentByText(elasticQueryServiceRequestModel.getText());
         LOGGER.debug("Elasticsearch returned {} of documents", responseModels.size());
         return ResponseEntity.ok(responseModels);

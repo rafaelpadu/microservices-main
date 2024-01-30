@@ -1,5 +1,6 @@
 package com.microservices.main.elastic.query.service.model;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,5 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ElasticQueryServiceRequestModel {
     private String id;
+    @NotEmpty
     private String text;
 }
