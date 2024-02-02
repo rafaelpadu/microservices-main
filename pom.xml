@@ -44,6 +44,7 @@
         <spring-cloud.version>4.0.3</spring-cloud.version>
         <spring-cloud-dependencies.version>2022.0.4</spring-cloud-dependencies.version>
         <elastic.version>7.17.4</elastic.version>
+        <springdoc-openapi-ui.version>1.7.0</springdoc-openapi-ui.version>
     </properties>
 
     <repositories>
@@ -220,6 +221,11 @@
                 <groupId>org.elasticsearch.client</groupId>
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>
                 <version>${elastic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc-openapi-ui.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.confluent</groupId>

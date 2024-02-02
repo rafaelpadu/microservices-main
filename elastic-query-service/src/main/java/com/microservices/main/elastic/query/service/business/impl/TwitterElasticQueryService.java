@@ -26,7 +26,7 @@ public class TwitterElasticQueryService implements ElasticQueryService {
 
     @Override
     public ElasticQueryServiceResponseModel getDocumentById(String id) {
-        logger.info("Queynrg elasticsearch by id{}", id);
+        logger.info("Queryng elasticsearch by id{}", id);
         return elasticQueryServiceResponseModelAssembler.toModel(elasticQueryClient.getIndexModelById(id));
     }
 
