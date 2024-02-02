@@ -1,10 +1,10 @@
-package com.microservices.main.elastic.query.service;
+package com.microservices.main.elastic.query.web.client;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class ElasticQueryServiceApplicationTests {
+public class ElasticQueryWebClientApplicationTests {
 
     @Test
     public void contextLoads(){}
