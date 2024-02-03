@@ -1,7 +1,6 @@
 package com.microservices.main.elastic.query.service.business;
 
-import com.microservices.main.elastic.query.service.model.ElasticQueryServiceResponseModel;
-import org.w3c.dom.stylesheets.LinkStyle;
+import br.com.easymarine.main.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
 
 import java.util.List;
 

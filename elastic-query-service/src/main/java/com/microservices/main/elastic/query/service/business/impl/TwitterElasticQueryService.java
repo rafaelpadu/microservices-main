@@ -1,11 +1,10 @@
 package com.microservices.main.elastic.query.service.business.impl;
 
+import br.com.easymarine.main.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
 import com.microservices.main.elastic.model.index.impl.TwitterIndexModel;
 import com.microservices.main.elastic.query.client.service.ElasticQueryClient;
 import com.microservices.main.elastic.query.service.business.ElasticQueryService;
-import com.microservices.main.elastic.query.service.model.ElasticQueryServiceResponseModel;
 import com.microservices.main.elastic.query.service.model.assembler.ElasticQueryServiceResponseModelAssembler;
-import com.microservices.main.elastic.query.service.transformer.ElasticToResponseModelTransformer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.microservices.main.elastic.query.service.api.error.handler;
+package br.com.easymarine.main.elastic.query.service.common.api.error.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

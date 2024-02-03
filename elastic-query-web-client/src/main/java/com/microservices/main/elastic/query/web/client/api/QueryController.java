@@ -1,7 +1,7 @@
 package com.microservices.main.elastic.query.web.client.api;
 
-import com.microservices.main.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
-import com.microservices.main.elastic.query.web.client.model.ElasticQueryWebClientResponseModel;
+import br.com.easymarine.main.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
+import br.com.easymarine.main.elastic.query.web.client.common.model.ElasticQueryWebClientResponseModel;
 import com.microservices.main.elastic.query.web.client.service.ElasticQueryWebClient;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -11,8 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 @Controller
 public class QueryController {

@@ -1,10 +1,10 @@
 package com.microservices.main.elastic.query.web.client.service.impl;
 
+import br.com.easymarine.main.elastic.query.web.client.common.exception.ElasticQueryWebClientException;
+import br.com.easymarine.main.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
+import br.com.easymarine.main.elastic.query.web.client.common.model.ElasticQueryWebClientResponseModel;
 import com.microservices.main.config.ElasticQueryServiceConfigData;
 import com.microservices.main.config.ElasticQueryWebClientConfigData;
-import com.microservices.main.elastic.query.web.client.exception.ElasticQueryWebClientException;
-import com.microservices.main.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
-import com.microservices.main.elastic.query.web.client.model.ElasticQueryWebClientResponseModel;
 import com.microservices.main.elastic.query.web.client.service.ElasticQueryWebClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

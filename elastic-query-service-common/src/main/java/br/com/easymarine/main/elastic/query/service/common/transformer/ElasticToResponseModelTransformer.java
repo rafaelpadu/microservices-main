@@ -1,7 +1,7 @@
-package com.microservices.main.elastic.query.service.transformer;
+package br.com.easymarine.main.elastic.query.service.common.transformer;
 
+import br.com.easymarine.main.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
 import com.microservices.main.elastic.model.index.impl.TwitterIndexModel;
-import com.microservices.main.elastic.query.service.model.ElasticQueryServiceResponseModel;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

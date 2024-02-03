@@ -1,4 +1,4 @@
-package com.microservices.main.elastic.query.service.model;
+package br.com.easymarine.main.elastic.query.service.common.model;
 
 import lombok.*;
 import org.springframework.hateoas.RepresentationModel;

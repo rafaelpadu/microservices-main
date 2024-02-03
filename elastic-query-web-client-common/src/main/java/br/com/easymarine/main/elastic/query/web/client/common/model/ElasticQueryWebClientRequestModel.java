@@ -1,4 +1,4 @@
-package com.microservices.main.elastic.query.service.model;
+package br.com.easymarine.main.elastic.query.web.client.common.model;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ElasticQueryServiceRequestModel {
+public class ElasticQueryWebClientRequestModel {
     private String id;
     @NotEmpty
     private String text;

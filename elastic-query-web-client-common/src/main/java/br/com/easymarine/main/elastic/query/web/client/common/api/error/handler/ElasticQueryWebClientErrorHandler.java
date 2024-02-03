@@ -1,6 +1,6 @@
-package com.microservices.main.elastic.query.web.client.api.error.handler;
+package br.com.easymarine.main.elastic.query.web.client.common.api.error.handler;
 
-import com.microservices.main.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
+import br.com.easymarine.main.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

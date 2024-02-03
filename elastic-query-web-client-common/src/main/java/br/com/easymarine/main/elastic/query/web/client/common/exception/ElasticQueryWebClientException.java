@@ -1,4 +1,4 @@
-package com.microservices.main.elastic.query.web.client.exception;
+package br.com.easymarine.main.elastic.query.web.client.common.exception;
 
 public class ElasticQueryWebClientException extends RuntimeException {
     public ElasticQueryWebClientException() {
