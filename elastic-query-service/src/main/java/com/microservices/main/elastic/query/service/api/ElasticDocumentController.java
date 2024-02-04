@@ -1,7 +1,7 @@
 package com.microservices.main.elastic.query.service.api;
 
-import br.com.easymarine.main.elastic.query.service.common.model.ElasticQueryServiceRequestModel;
-import br.com.easymarine.main.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
+import br.com.microservices.main.elastic.query.service.common.model.ElasticQueryServiceRequestModel;
+import br.com.microservices.main.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
 import com.microservices.main.elastic.query.service.business.impl.TwitterElasticQueryService;
 import com.microservices.main.elastic.query.service.model.ElasticQueryServiceResponseModelV2;
 import io.swagger.v3.oas.annotations.Operation;

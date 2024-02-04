@@ -1,7 +1,7 @@
 package com.microservices.main.elastic.query.web.client.api;
 
-import br.com.easymarine.main.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
-import br.com.easymarine.main.elastic.query.web.client.common.model.ElasticQueryWebClientResponseModel;
+import br.com.microservices.main.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
+import br.com.microservices.main.elastic.query.web.client.common.model.ElasticQueryWebClientResponseModel;
 import com.microservices.main.elastic.query.web.client.service.ElasticQueryWebClient;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;

@@ -1,6 +1,6 @@
 package com.microservices.main.elastic.query.service.business;
 
-import br.com.easymarine.main.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
+import br.com.microservices.main.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
 
 import java.util.List;
 
