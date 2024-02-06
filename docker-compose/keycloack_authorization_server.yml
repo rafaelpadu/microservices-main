@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_DB=keycloak"
+      - "POSTGRES_USER=keycloak"
+      - "POSTGRES_PASSWORD=keycloak"
+  keycloak-authorization-server:
+    image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:-latest}
+    hostname: keycloak-server
+    ports:
+      - "9081:9081"
+    environment:
+      - "KEYCLOAK_USER=admin"
+      - "KEYCLOAK_PASSWORD=admin"
+      - "KEYCLOAK_LOGLEVEL=DEBUG"
+      - "JAVA_OPTS=-Djboss.http.port=9081"
+      - "DB_VENDOR=POSTGRES"
+      - "DB_ADDR=postgres"
+      - "DB_DATABASE=keycloak"
+      - "DB_USER=keycloak"
+      - "DB_SCHEMA=public"
+      - "DB_PASSWORD=keycloak"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+    driver: local
