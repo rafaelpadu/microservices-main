@@ -25,22 +25,25 @@ public class TwitterElasticRepositoryQueryClient implements ElasticQueryClient<T
 
     @Override
     public TwitterIndexModel getIndexModelById(String id) {
-        Optional<TwitterIndexModel> seaarchResult = twitterElasticsearchQueryRepository.findById(id);
-        logger.info("Document with id {} retrieved successfully", seaarchResult.orElseThrow(() -> new ElasticQueryClientException("No document found at elasticsearch with id " + id)).getId());
-        return seaarchResult.get();
+        Optional<TwitterIndexModel> searchResult = twitterElasticsearchQueryRepository.findById(id);
+        logger.info("Document with id {} retrieved successfully",
+                searchResult.orElseThrow(() ->
+                        new ElasticQueryClientException("No document found at elasticsearch with id " + id)).getId());
+        return searchResult.get();
     }
 
     @Override
     public List<TwitterIndexModel> getIndexModelByText(String text) {
         List<TwitterIndexModel> searchResult = twitterElasticsearchQueryRepository.findByText(text);
-        logger.info("{} of document with text {} retrieved successfully", searchResult.size(), text);
+        logger.info("{} of documents with text {} retrieved successfully", searchResult.size(), text);
         return searchResult;
     }
 
     @Override
     public List<TwitterIndexModel> getAllIndexModels() {
-        List<TwitterIndexModel> all = CollectionsUtil.getInstance().getListFromIterable(twitterElasticsearchQueryRepository.findAll());
-        logger.info("{} of document retrieved successfully", all.size());
-        return all;
+        List<TwitterIndexModel> searchResult =
+                CollectionsUtil.getInstance().getListFromIterable(twitterElasticsearchQueryRepository.findAll());
+        logger.info("{} number of documents retrieved successfully", searchResult.size());
+        return searchResult;
     }
 }

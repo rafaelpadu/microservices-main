@@ -9,6 +9,7 @@ import com.microservices.main.elastic.query.client.service.ElasticQueryClient;
 import com.microservices.main.elastic.query.client.util.ElasticQueryUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHits;

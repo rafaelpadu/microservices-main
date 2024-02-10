@@ -1,31 +1,80 @@
-services:
-  postgres:
-    image: postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    environment:
-      - "POSTGRES_DB=keycloak"
-      - "POSTGRES_USER=keycloak"
-      - "POSTGRES_PASSWORD=keycloak"
-  keycloak-authorization-server:
-    image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:-latest}
-    hostname: keycloak-server
-    ports:
-      - "9081:9081"
-    environment:
-      - "KEYCLOAK_USER=admin"
-      - "KEYCLOAK_PASSWORD=admin"
-      - "KEYCLOAK_LOGLEVEL=DEBUG"
-      - "JAVA_OPTS=-Djboss.http.port=9081"
-      - "DB_VENDOR=POSTGRES"
-      - "DB_ADDR=postgres"
-      - "DB_DATABASE=keycloak"
-      - "DB_USER=keycloak"
-      - "DB_SCHEMA=public"
-      - "DB_PASSWORD=keycloak"
-    depends_on:
-      - postgres
+# docker version
+version: "3"
 
-volumes:
-  postgres_data:
-    driver: local
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: mykeycloak
+    command: start-dev
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KEYCLOAK_LOGLEVEL: DEBUG
+      DB_VENDOR: postgres
+      JDBC_URL: jdbc:postgresql://localhost:5432/keycloak
+      DB_PASSWORD: keycloak
+      DB_USER: keycloak
+      KEYCLOAK_USER: user_1
+      KEYCLOAK_PASSWORD: 123456
+    ports:
+      - "8080:8080"
+
+#  postgres_svr:
+#    image: postgres:latest
+#    environment:
+#      # Environment Variables expecially for Postgres
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: postgres
+#    healthcheck:
+#      test: "exit 0"
+#    ports:
+#      - "5432:5432"
+#    networks:
+#      network_sso:
+#        ipv4_address: "10.0.0.3"
+#networks:
+#  network_sso:
+#    ipam:
+#      # IP Address management
+#      driver: default
+#      # default = bridge
+#      config:
+#        - subnet: "10.0.0.0/24"
+
+
+#services:
+#  postgres:
+#    image: postgres:latest
+#    ports:
+#      - "5342:5342"
+#    volumes:
+#      - /home/rafael/Documentos/Bancos/PostgreSQL:/var/lib/postgresql/data
+#    environment:
+#      - "POSTGRES_DB=keycloak"
+#      - "POSTGRES_USER=admin"
+#      - "POSTGRES_PASSWORD=admin"
+#    networks:
+#      - ${GLOBAL_NETWORK:-services}
+##  keycloak:
+##    image: quay.io/keycloak/keycloak:15.0.1
+##    ports:
+##      - "9081:9081"
+##    networks:
+##      - ${GLOBAL_NETWORK:-services}
+##    environment:
+##      - "KEYCLOAK_USER=admin"
+##      - "KEYCLOAK_PASSWORD=admin"
+##      - "KEYCLOAK_LOGLEVEL=DEBUG"
+##      - "JAVA_OPTS=-Djboss.http.port=9081"
+##      - "DB_VENDOR=POSTGRES"
+##      - "DB_ADDR=postgres"
+##      - "DB_DATABASE=keycloak"
+##      - "DB_USER=keycloak"
+##      - "DB_SCHEMA=public"
+##      - "DB_PASSWORD=keycloak"
+##    depends_on:
+##      - postgres
+#
+#volumes:
+#  postgres_data:
+#    driver: local

@@ -39,8 +39,7 @@ public class WebSecurityConfig {
 
     @Bean
     public MethodSecurityExpressionHandler expressionHandler() {
-        DefaultMethodSecurityExpressionHandler expressionHandler = new DefaultMethodSecurityExpressionHandler();
-        return expressionHandler;
+        return new DefaultMethodSecurityExpressionHandler();
     }
 
     @Bean
