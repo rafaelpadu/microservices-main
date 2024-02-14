@@ -9,23 +9,24 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>elastic-query-web-client</artifactId>
+    <groupId>br.com.microservices</groupId>
+    <artifactId>elastic-query-web-client-2</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>com.microservices.demo</groupId>-->
-<!--            <artifactId>mdc-interceptor</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.microservices.demo</groupId>-->
+        <!--            <artifactId>mdc-interceptor</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>com.microservices</groupId>
             <artifactId>elastic-query-web-client-common</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.microservices</groupId>
             <artifactId>app-config-data</artifactId>
@@ -42,10 +43,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-loadbalancer</artifactId>
@@ -91,7 +92,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <image>
-                        <name>${project.groupId}/elastic.query.web.client:${project.version}</name>
+                        <name>${project.groupId}/elastic.query.web.client.2:${project.version}</name>
                     </image>
                 </configuration>
                 <executions>

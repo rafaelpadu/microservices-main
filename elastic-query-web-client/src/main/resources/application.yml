@@ -10,3 +10,10 @@ spring:
       name: elastic-query-web-client,config-client
       username: spring_cloud_user
       password: '1234'
+
+elastic-query-web-client:
+  webclient:
+    instances:
+      - id: elastic-query-service-1
+        host: localhost
+        port: 8183
