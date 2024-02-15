@@ -2,9 +2,10 @@
 version: "3"
 
 services:
-  keycloak:
+  keycloak-authorization-server:
     image: quay.io/keycloak/keycloak:latest
-    container_name: mykeycloak
+    container_name: mykeycloak2
+    hostname: keycloak-server
     command: start-dev
     environment:
       KEYCLOAK_ADMIN: admin
