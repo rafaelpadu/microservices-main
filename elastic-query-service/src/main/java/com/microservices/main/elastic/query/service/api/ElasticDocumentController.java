@@ -3,7 +3,9 @@ package com.microservices.main.elastic.query.service.api;
 import br.com.microservices.main.elastic.query.service.common.model.ElasticQueryServiceRequestModel;
 import br.com.microservices.main.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
 import com.microservices.main.elastic.query.service.business.impl.TwitterElasticQueryService;
+import com.microservices.main.elastic.query.service.model.ElasticQueryServiceAnalyticsResponseModel;
 import com.microservices.main.elastic.query.service.model.ElasticQueryServiceResponseModelV2;
+import com.microservices.main.elastic.query.service.security.TwitterQueryUser;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -16,6 +18,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
+import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -92,9 +97,13 @@ public class ElasticDocumentController {
             @ApiResponse(responseCode = "500", description = "Internal server error.")
     })
     @PostMapping("/get-document-by-text")
-    public ResponseEntity<List<ElasticQueryServiceResponseModel>> getDocumentByText(@RequestBody @Valid ElasticQueryServiceRequestModel elasticQueryServiceRequestModel) {
-        List<ElasticQueryServiceResponseModel> responseModels = twitterElasticQueryService.getDocumentByText(elasticQueryServiceRequestModel.getText());
-        LOGGER.debug("Elasticsearch returned {} of documents", responseModels.size());
+    public ResponseEntity<ElasticQueryServiceAnalyticsResponseModel> getDocumentByText(
+            @RequestBody @Valid ElasticQueryServiceRequestModel elasticQueryServiceRequestModel,
+            @AuthenticationPrincipal TwitterQueryUser principal,
+            @RegisteredOAuth2AuthorizedClient("keycloak") OAuth2AuthorizedClient auth2AuthorizedClient) {
+        ElasticQueryServiceAnalyticsResponseModel responseModels = twitterElasticQueryService.getDocumentByText(elasticQueryServiceRequestModel.getText(),
+                auth2AuthorizedClient.getAccessToken().getTokenValue());
+        LOGGER.debug("Elasticsearch returned {} of documents", responseModels.getQueryResponseModels().size());
         return ResponseEntity.ok(responseModels);
     }
 

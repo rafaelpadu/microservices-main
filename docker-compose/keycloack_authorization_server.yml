@@ -19,6 +19,8 @@ services:
       KEYCLOAK_PASSWORD: 123456
     ports:
       - "8080:8080"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
 
 #  postgres_svr:
 #    image: postgres:latest

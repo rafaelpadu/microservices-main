@@ -1,6 +1,7 @@
 package com.microservices.main.elastic.query.web.client.service.impl;
 
 import br.com.microservices.main.elastic.query.web.client.common.exception.ElasticQueryWebClientException;
+import br.com.microservices.main.elastic.query.web.client.common.model.ElasticQueryWebClientAnalyticsResponseModel;
 import br.com.microservices.main.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
 import br.com.microservices.main.elastic.query.web.client.common.model.ElasticQueryWebClientResponseModel;
 import com.microservices.main.config.ElasticQueryWebClientConfigData;
@@ -32,11 +33,10 @@ public class TwitterElasticQueryWebClient implements ElasticQueryWebClient {
     }
 
     @Override
-    public List<ElasticQueryWebClientResponseModel> getDataByText(ElasticQueryWebClientRequestModel requestModel) {
+    public ElasticQueryWebClientAnalyticsResponseModel getDataByText(ElasticQueryWebClientRequestModel requestModel) {
         log.info("Querying by text {}", requestModel.getText());
         return getWebClient(requestModel)
-                .bodyToFlux(ElasticQueryWebClientResponseModel.class)
-                .collectList()
+                .bodyToMono(ElasticQueryWebClientAnalyticsResponseModel.class)
                 .block();
     }
 
