@@ -1,15 +1,23 @@
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    appname: service-registry-cluster
+  server:
+    enable-self-preservation: false
+    expected-client-renewal-interval-seconds: 20
+    eviction-interval-timer-in-ms: 20000
+    peer-node-read-timeout-ms: 20000
+
 spring:
-  application:
-    name: elastic-query-service
-  profiles:
-    active: elastic_query
-  config:
-    import: 'configserver:'
   cloud:
-    config:
-      name: elastic-query-service,config-client
-      username: spring_cloud_user
-      password: '1234'
+    loadbalancer:
+      ribbon:
+        enabled: false
+  profiles:
+    active: singleserver
+
 
 ---
 server:
@@ -26,6 +34,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://discovery-service-1:8761/eureka/,http://discovery-service-2:8762/eureka/
+log:
+  app-name: discovery-service-1
 
 ---
 server:
@@ -42,3 +52,5 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://discovery-service-2:8762/eureka/,http://discovery-service-1:8761/eureka/
+log:
+  app-name: discovery-service-2

@@ -3,6 +3,7 @@ package com.microservices.main.elastic.query.web.client.config;
 import com.microservices.main.config.ElasticQueryWebClientConfigData;
 import org.apache.hc.core5.http.HttpHeaders;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
@@ -29,7 +30,7 @@ public class WebClientConfig {
         this.elasticQueryWebClientConfigData = webClientConfigData.getWebClient();
     }
 
-//    @LoadBalanced
+    @LoadBalanced
     @Bean("webClientBuilder")
     WebClient.Builder webClientBuilder(
             ClientRegistrationRepository clientRegistrationRepository,

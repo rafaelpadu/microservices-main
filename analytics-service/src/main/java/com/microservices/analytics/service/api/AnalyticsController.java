@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @PreAuthorize("isAuthenticated()")
 @RestController
-@RequestMapping(value = "/", produces = "application/vnd.api.v1+json")
+@RequestMapping(value = "/analytics-service", produces = "application/vnd.api.v1+json")
 public class AnalyticsController {
 
     private static final Logger LOG = LoggerFactory.getLogger(AnalyticsController.class);

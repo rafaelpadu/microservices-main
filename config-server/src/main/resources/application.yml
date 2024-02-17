@@ -14,7 +14,7 @@ spring:
           uri: https://github.com/rafaelpadu/config-server-repository
           default-label: master
           username: rafaelpadu
-          password: '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'
+          password: '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'
           clone-on-start: true
     fail-fast: true
   security:
